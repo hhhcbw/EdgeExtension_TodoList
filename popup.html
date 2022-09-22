@@ -9,24 +9,20 @@
  
     <header>
         <section>
-            <label for="add_list">My todolist</label>
-            <input type="text" id="add_list" name="add_list" placeholder="type here" required>
+            <input type="text" id="add_list" name="add_list" placeholder="输入计划" required>
+            <button id="addbutton">添加</button>
         </section>
     </header>
  
     <div class="content">
-        <h1>未完成<span id="todocount"></span></h1>
-        <ol id="todolist">
-        </ol>
-        <h1>已完成<span id="donecount"></span></h1>
-        <ol id="donelist">
-        </ol>
+        <ul id="todolist">
+        </ul>
     </div>
  
     <div id="clear">
-    	<button id="clearbutton"><h3>全部清除</h3></button>
+    	<button id="clearbutton">全部清除</button>
+        <button id="deletedonebutton">删除已做</button>
     </div>
-    <!-- <script src="todolist-prime.js"></script> -->
     <script src="popup.js"></script>
 </body>
 </html>
