@@ -10,7 +10,7 @@ function addTodolist(e) {
   }
 
   obj_list.todo = document.getElementById("add_list").value; // 用户输入数据
-  todolist.push(obj_list); // 放入TodoList数组中
+  todolist.unshift(obj_list); // 放入TodoList数组中
 
   saveData(todolist); // 保存至本地缓存
 
