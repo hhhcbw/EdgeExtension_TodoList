@@ -28,9 +28,9 @@ function load(){
 
   // todolist数组对象里若包含用户输入数据，则将其添加至dom节点；若为空对象，则初始化页面。
   if (todolist.length != 0){
-    for (let i=0; i<todolist.length; i ++){
-      todoString += "<li><input id='input-"+i+"' type='checkbox' onchange='update("+i+",\"done\"," + !todolist[i].done + ")' ";
-        
+    for (let i=0; i<todolist.length; i ++) {
+      todoString += "<li><input id='input-"+i+"' type='checkbox'";
+
       if(todolist[i].done) { // 做过的就打上勾
           todoString += "checked='checked'";  
       }
@@ -43,19 +43,27 @@ function load(){
           todoString += "<p style='display:inline'>" + todolist[i].todo + "</p>";
       }
         
-      todoString += "<a onclick='remove("+i+")'>-</a></li>"; // 删除事项为 - 号
-        
-      todo.innerHTML = todoString; // 替换原有 html 内容
+      todoString += "<a>-</a></li>"; // 删除事项为 - 号
+
     }
+    todo.innerHTML = todoString; // 替换原有 html 内容
   }
   else {
       // console.log("empty");
       todo.innerHTML = ""; // 数组为空直接清空原有 html 内容
+  } 
+  const inputs = todo.querySelectorAll('input');
+  const as = todo.querySelectorAll('a');
+
+  for (let i=0; i<inputs.length; i++) {
+    inputs[i].addEventListener('click', update.bind(update, i, "done", !todolist[i].done));
+    as[i].addEventListener('click', remove.bind(remove, i));
   }
 } 
 
 function update(i, field, value) {
   // console.log("update");
+  // console.log(value)
   todolist[i][field] = value; // 字符串形式使用[]，变量形式使用.
   if (value){ // 如果是已做，则将其放到数组尾部
     var temp = todolist[i];
@@ -116,15 +124,15 @@ function deletedone() {
 window.addEventListener("load", load);  //页面加载完毕调用load函数
 
 // 清除全部
-document.getElementById("clearbutton").onclick = clear;
+document.getElementById("clearbutton").addEventListener("click", clear);
 // 删除已做
-document.getElementById("deletedonebutton").onclick = deletedone;
+document.getElementById("deletedonebutton").addEventListener("click", deletedone);
 
 // 回车添加
-document.getElementById("add_list").onkeydown = function (event) {
+document.getElementById("add_list").addEventListener("keydown", function(event) {
   if(event.key === 'Enter'){
-      addTodolist();
-  }
-};
+    addTodolist();
+}});
+
 // 点击按钮添加
-document.getElementById("addbutton").onclick = addTodolist;
+document.getElementById("addbutton").addEventListener("click", addTodolist);

@@ -4,25 +4,28 @@ body {
     font-size: 16px;
     background-color: gainsboro;
 }
+
 header {
     height: 50px;
     background-color: cornflowerblue;
 }
-header section {
+
+header section{
     margin: 0 auto;
     width: 40%;
 }
  
-header section label {
-    float: left;
-    line-height: 50px;  /*设置line-height和包含块高度一致，以实现行内元素垂直居中*/
-    font-size: 20px;
+header section button {
+    /* float: left; */
+    /* line-height: 24px;  设置line-height和包含块高度一致，以实现行内元素垂直居中 */
+    font-size: 18px;
+
 }
  
 #add_list {
-    float: right;
-    margin-top: 11px;
-    width: 60%;
+    /* float: left; */
+    margin-top: 10px;
+    width: 50%;
     height: 24px;
     border-radius: 5px;
     box-shadow: 0 1px 0 black;
@@ -116,10 +119,13 @@ ol li a {
     border-color: red;
     border-radius: 5px;
     box-shadow: 0 1px 0 yellow;
-    cursor: pointer;
+    /* cursor: pointer; */
+    display: inline;
 }
  
-button h3{
-    font-size: 13px;
-    line-height: 13px;
+#deletedonebutton {
+    border-color: red;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 yellow;
+    cursor: pointer;
 }
